@@ -29,14 +29,16 @@ public abstract class Function {
     }
 
     public boolean checkIsolationInterval(double left, double right) {
-
+        System.out.println("1");
         if (left >= right) {
             System.out.println("Левая граница должна стоять до правой границы и не равняться ей.");
             return false;
         }
 
         for (Solution solution : solutions) {
+            System.out.println("i");
             if (solution.isHasLeft() && solution.isHasRight()) {
+                System.out.println("hh");
                 if (solution.getLeft() < left && left < solution.getValue() && solution.getRight() > right && right > solution.getValue() && computeDerivative(left) * computeDerivative(right) > 0) {
                     return true;
                 }
@@ -46,12 +48,14 @@ public abstract class Function {
                 return true;
             }
             if (solution.isHasRight() && solution.getRight() > right && right > solution.getValue() && left < solution.getValue()) {
+                System.out.println("afdge");
                 return true;
             }
             if (!solution.isHasLeft() && !solution.isHasRight() && left <= solution.getValue() && right >= solution.getValue()) {
                 return true;
             }
         }
+        System.out.println("end");
         return false;
     }
 

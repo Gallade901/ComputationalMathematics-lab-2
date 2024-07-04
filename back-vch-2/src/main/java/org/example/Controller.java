@@ -49,6 +49,7 @@ public class Controller {
     public ResponseEntity borders(@RequestParam("left") String leftValue, @RequestParam("right") String rightValue, @RequestParam("accuracy") String accuracy, @RequestParam("quantity") String quantity) {
         if (system == 1) {
             String out = main.check(leftValue, rightValue, accuracy, quantity);
+            System.out.println(out);
             return ResponseEntity.ok(out);
         }
         if (system == 2) {
